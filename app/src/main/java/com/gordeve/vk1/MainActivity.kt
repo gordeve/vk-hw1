@@ -21,15 +21,12 @@ class MainActivity : AppCompatActivity() {
 
         fab.setOnClickListener {
             adapter.addItems(adapter.itemCount + 1)
+            recyclerView.scrollToPosition(adapter.itemCount - 1)
         }
 
-        if (savedInstanceState != null) {
-            savedInstanceState.getIntegerArrayList("adapter_items")?.run {
-                adapter.setItems(this)
-            }
-        } else {
-            adapter.setItems(listOf(1, 2, 3, 4, 5))
-        }
+        adapter.setItems(
+            savedInstanceState?.getIntegerArrayList("adapter_items") ?: listOf(1, 2, 3, 4, 5)
+        )
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

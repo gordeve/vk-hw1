@@ -7,19 +7,16 @@ import androidx.recyclerview.widget.RecyclerView.Adapter
 class BoxAdapter() : Adapter<BoxViewHolder>() {
     val items = ArrayList<Int>()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BoxViewHolder {
-        return BoxViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BoxViewHolder =
+        BoxViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.item_view, parent, false)
         )
-    }
 
-    override fun getItemCount(): Int {
-        return items.size
-    }
 
-    override fun onBindViewHolder(holder: BoxViewHolder, position: Int) {
+    override fun getItemCount() = items.size
+
+    override fun onBindViewHolder(holder: BoxViewHolder, position: Int) =
         holder.bind(items[position])
-    }
 
     fun setItems(list: List<Int>) {
         items.clear()

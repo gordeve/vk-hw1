@@ -12,7 +12,7 @@ class BoxViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     private val image = view.findViewById<ImageView>(R.id.image_view)
 
     fun bind(number: Int) {
-        text.text = "$number"
-        image.setBackgroundColor(if (number % 2 == 0) Color.RED else Color.BLUE)
+        text?.text = "$number"
+        image?.setBackgroundColor(if (number % 2 == 0) Color.RED else Color.BLUE)
     }
 }
